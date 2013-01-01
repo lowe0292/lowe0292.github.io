@@ -1,16 +1,78 @@
 /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
 * {position:relative;
-
 -moz-box-sizing:border-box;
 -webkit-box-sizing:border-box; 
 box-sizing:border-box;
-} 
+}
 
 body {
-	background-color: black;
-	font-family: "Garamond";
-	font-weight: bold;
+	font-family: 'Wendy One', sans-serif;
+}
+
+#cube{
+	position: relative;
+	margin: 100px auto;
+	height: 500px;
+	width: 500px;
+	-webkit-transition: -webkit-transform 1s linear;
+	-webkit-transform-style: preserve-3d;
+
+	-moz-transition: -moz-transform 1s linear;
+	-moz-transform-style: preserve-3d;
+}
+
+#cube .one  {
+	-webkit-transform: translateZ(250px);
+	-moz-transform: translateZ(250px);
+}
+
+#cube .two {
+	-webkit-transform: rotateY(90deg) translateZ(250px);
+	-moz-transform: rotateY(90deg) translateZ(250px);
+}
+
+#cube .three {
+	-webkit-transform: rotateY(180deg) translateZ(250px);
+	-moz-transform: rotateY(180deg) translateZ(250px);
+}
+
+#cube .four {
+	-webkit-transform: rotateY(-90deg) translateZ(250px);
+	-moz-transform: rotateY(-90deg) translateZ(250px);
+}
+
+#cube .five {
+	-webkit-transform: rotateX(90deg) translateZ(250px);
+	-moz-transform: rotateX(90deg) translateZ(250px);
+}
+
+#cube .six {
+  -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(250px);
+  -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(250px);
+}
+
+#experiment {
+	webkit-perspective: 800;
+	webkit-perspective-origin: 50% 200px;
+	-moz-perspective: 800; 
+	-moz-perspective-origin: 50% 200px;
+}
+
+.face{
+	position: absolute;
+	height: 500px;
+	width: 500px;
+	line-height: 1em;
+	border: 1px solid #555;
+	border-radius: 3px;
+	background-color: rgba(50, 50, 50, 0.9);
+	color: white;
+}
+
+h1 {
+	text-align: center;
+	padding: 15px;
 }
 
 .main-navigation {
@@ -25,8 +87,10 @@ body {
 	width: 150px;
 	border-radius: 3px;
 	color: inherit;
+	margin: 3px;
+	font-size: 15pt;
 } .main-navigation a:hover {
-	background-color: #440066;
+	background: #5112C5;
 	color: white;
 }
 
@@ -46,7 +110,7 @@ body {
 
 .main-navigation ul {
 	background: -moz-linear-gradient(top, #fff 0%, #ddd 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,$ddd));
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fff), color-stop(100%,#ddd));
 	background: -webkit-linear-gradient(top, #fff 0%, #ddd 100%);
 	background: -o-linear-gradient(top, #fff 0%, #ddd 100%);
 	background: -ms-linear-gradient(top, #fff 0%, #ddd 100%);
@@ -63,4 +127,14 @@ nav {
 nav a {
 	color: inherit;
 	text-decoration: none;
+}
+
+nav a.selected {
+	background: black;
+	color: white;
+}
+
+p {
+	text-align: center;
+	margin: 100px 10%;
 }

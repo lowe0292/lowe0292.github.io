@@ -1,18 +1,104 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<link href='http://fonts.googleapis.com/css?family=Wendy+One' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	</head>
 	<body>
 		<nav class="main-navigation">
 		   <ul>
-		    	<li><a href="#home">home</a>
-		    	</li><li><a href="#about">about</a>
-		    	</li><li><a href="#thoughts">thoughts</a>
-		    	</li><li><a href="#creations">creations</a>
-		  		</li><li><a href="#contact">contact</a>
+		    	<li><a id="home" href="#home">home</a>
+		    	</li><li><a id="about" href="#about">about</a>
+		    	</li><li><a id="thoughts" href="#thoughts">thoughts</a>
+		    	</li><li><a id="creations" href="#creations">creations</a>
+		  		</li><li><a id="contact" href="#contact">contact</a>
 		    	</li>
 		   </ul>
 		</nav>
+		<div id="experiment">
+			<div id="cube">
+				<div class="face one">
+					<h1>Hi, I'm Scott Lowe.</h1>
+					<p>...and this is my website. I created it to put some of my new found web development skills to the test and to act as a central hub for everything I do online, from social media to blogging. Have a look around!</p>
+				</div>
+				<div class="face two">
+					<h1>Side Two</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
+				</div>
+				<div class="face three">
+					<h1>Side Three</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
+				</div>
+				<div class="face four">
+					<h1>Side Four</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
+				</div>
+				<div class="face five">
+					<h1>Side Five</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
+				</div>
+				<div class="face six">
+					<h1>Side Six</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
+				</div>
+			</div>
+		</div>
 	</body>
+	<script type="text/javascript">
+
+	//initial setup
+	$(document).ready(
+		function(){
+			if(window.location.hash) {
+				var hash_value = window.location.hash;
+				$(hash_value).addClass("selected");
+			} else {
+				//select home by default
+				$('#home').addClass("selected");
+			}
+		}
+	);
+
+	//navigation handling
+	$('nav ul li a').click(function(){
+		$('.selected').removeClass("selected");
+		$(this).addClass("selected");
+	});
+
+	var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
+	prop,
+	el = document.createElement('div');
+
+	for(var i = 0, l = props.length; i < l; i++) {
+		if(typeof el.style[props[i]] !== "undefined") {
+			prop = props[i];
+			break;
+		}
+	}
+
+	//coordinate these cube rotations with dynamic
+	var xAngle = 0, yAngle = 0;
+    $('body').keydown(function(evt) {
+    	switch(evt.keyCode){
+    		case 37: // left
+				yAngle -= 90;
+				break;
+
+			case 38: // up
+				xAngle += 90;				
+				break;
+
+			case 39: // right
+				yAngle += 90;
+				break;
+
+			case 40: // down
+				xAngle -= 90;
+				break;
+	    	};
+
+    	document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+    });
+	</script>
 </html>
