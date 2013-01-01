@@ -8,11 +8,11 @@
 	<body>
 		<nav class="main-navigation">
 		   <ul>
-		    	<li><a id="home" href="#home">home</a>
-		    	</li><li><a id="about" href="#about">about</a>
-		    	</li><li><a id="thoughts" href="#thoughts">thoughts</a>
-		    	</li><li><a id="creations" href="#creations">creations</a>
-		  		</li><li><a id="contact" href="#contact">contact</a>
+		    	<li><a class="home" href="#home">home</a>
+		    	</li><li><a class="about" href="#about">about</a>
+		    	</li><li><a class="thoughts" href="#thoughts">thoughts</a>
+		    	</li><li><a class="creations" href="#creations">creations</a>
+		  		</li><li><a class="contact" href="#contact">contact</a>
 		    	</li>
 		   </ul>
 		</nav>
@@ -38,10 +38,10 @@
 					<h1>Side Five</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
 				</div>
-				<div class="face six">
+<!-- 				<div class="face six">
 					<h1>Side Six</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</body>
@@ -50,13 +50,17 @@
 	//initial setup
 	$(document).ready(
 		function(){
+			//get hash value from url
 			if(window.location.hash) {
-				var hash_value = window.location.hash;
+				var hash_value = window.location.hash.replace("#",".");
 				$(hash_value).addClass("selected");
 			} else {
 				//select home by default
-				$('#home').addClass("selected");
+				$('.home').addClass("selected");
 			}
+
+			//set the appropriate size for the cube.
+			resizeExperiment();
 		}
 	);
 
@@ -64,6 +68,13 @@
 	$('nav ul li a').click(function(){
 		$('.selected').removeClass("selected");
 		$(this).addClass("selected");
+
+		//actually change the pages here. :)
+		alert('You clicked "'+$(this).text()+'"');
+	});
+
+	$(window).resize(function() {
+		resizeExperiment();
 	});
 
 	var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
@@ -82,23 +93,65 @@
     $('body').keydown(function(evt) {
     	switch(evt.keyCode){
     		case 37: // left
-				yAngle -= 90;
+				yAngle -= rotationAngle;
 				break;
 
 			case 38: // up
-				xAngle += 90;				
+				xAngle += 360;				
 				break;
 
 			case 39: // right
-				yAngle += 90;
+				yAngle += rotationAngle;
 				break;
 
 			case 40: // down
-				xAngle -= 90;
+				xAngle -= 360;
 				break;
 	    	};
 
     	document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
     });
+
+    function toDegrees (angle) {
+		return angle * (180 / Math.PI);
+	}
+
+	function toRadians (angle) {
+  		return angle * (Math.PI / 180);
+	}
+
+	function resizeExperiment(){
+		windowWidth = $(window).innerWidth();
+		windowHeight = $(window).innerHeight();
+		var minDimension = Math.min(windowHeight,windowWidth);
+		//set experiment size based on 10% margin at top and bottom.
+		$('#experiment').css("height",Math.round(minDimension*.8));
+		$('#experiment').css("width",Math.round(minDimension*.8));
+		$('#experiment').css("margin-top",Math.round(minDimension*.1));
+		$('#experiment').css("margin-bottom",Math.round(minDimension*.1));
+
+		//set sizes of the faces and cube
+		$('.face').css("height",Math.round(minDimension*.8));
+		$('.face').css("width",Math.round(minDimension*.8));
+		$('#cube').css("height",Math.round(minDimension*.8));
+		$('#cube').css("width",Math.round(minDimension*.8));
+
+		//find radius of polygon
+		n = 5; //number of sides
+		polygonAngle = ((n-2)*180)/n; //angle between sides
+		rotationAngle = 360/n; //number of rotations for a full spin
+		radius = minDimension / (2*Math.sin(toRadians(180/n)));
+		height = radius*Math.sin(toRadians(rotationAngle/2))+100;
+
+
+		//translate side 1 our of the page the appropriate amount
+		$('.one').css(prop,"translateZ("+Math.round(height)+"px)");
+		$('.main-navigation').css(prop,"translateZ("+Math.round(height/10)+"px)");
+		$('#test').css(prop,"translateZ("+height/10+"px)");
+		$('.two').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
+		$('.three').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
+		$('.four').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
+		$('.five').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*4)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*4)))+"px) rotateY("+rotationAngle*4+"deg)");
+	}
 	</script>
 </html>
