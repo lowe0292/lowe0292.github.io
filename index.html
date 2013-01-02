@@ -6,19 +6,18 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	</head>
 	<body>
-		<nav class="main-navigation">
-		   <ul>
-		    	<li><a class="home" href="#home">home</a>
-		    	</li><li><a class="about" href="#about">about</a>
-		    	</li><li><a class="thoughts" href="#thoughts">thoughts</a>
-		    	</li><li><a class="creations" href="#creations">creations</a>
-		  		</li><li><a class="contact" href="#contact">contact</a>
-		    	</li>
-		   </ul>
-		</nav>
 		<div id="experiment">
 			<div id="cube">
 				<div class="face one">
+					<nav class="main-navigation">
+					   <ul>
+					    	</li><li><a class="about" href="#about">about</a>
+					    	</li><li><a class="thoughts" href="#thoughts">thoughts</a>
+					    	</li><li><a class="creations" href="#creations">creations</a>
+					  		</li><li><a class="contact" href="#contact">contact</a>
+					    	</li>
+					   </ul>
+					</nav>
 					<h1>Hi, I'm Scott Lowe.</h1>
 					<p>...and this is my website. I created it to put some of my new found web development skills to the test and to act as a central hub for everything I do online, from social media to blogging. Have a look around!</p>
 				</div>
@@ -34,10 +33,10 @@
 					<h1>Side Four</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
 				</div>
-				<div class="face five">
+				<!-- <div class="face five">
 					<h1>Side Five</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
-				</div>
+				</div> -->
 <!-- 				<div class="face six">
 					<h1>Side Six</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
@@ -89,11 +88,11 @@
 	}
 
 	//coordinate these cube rotations with dynamic
-	var xAngle = 0, yAngle = 0;
+	var xAngle = 0, yAngle = 0, zAngle = 0;
     $('body').keydown(function(evt) {
     	switch(evt.keyCode){
     		case 37: // left
-				yAngle -= rotationAngle;
+				yAngle -= 360;
 				break;
 
 			case 38: // up
@@ -101,7 +100,7 @@
 				break;
 
 			case 39: // right
-				yAngle += rotationAngle;
+				yAngle += 360;
 				break;
 
 			case 40: // down
@@ -109,7 +108,7 @@
 				break;
 	    	};
 
-    	document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+    	document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg) rotateZ("+zAngle+"deg)";
     });
 
     function toDegrees (angle) {
@@ -137,21 +136,21 @@
 		$('#cube').css("width",Math.round(minDimension*.8));
 
 		//find radius of polygon
-		n = 5; //number of sides
+		n = 4; //number of sides
 		polygonAngle = ((n-2)*180)/n; //angle between sides
 		rotationAngle = 360/n; //number of rotations for a full spin
-		radius = minDimension / (2*Math.sin(toRadians(180/n)));
-		height = radius*Math.sin(toRadians(rotationAngle/2))+100;
-
+		radius = minDimension / (2*Math.sin(toRadians(180)/n));
+		height = radius*Math.cos(toRadians(rotationAngle)/2);
 
 		//translate side 1 our of the page the appropriate amount
+		// toggle classes
 		$('.one').css(prop,"translateZ("+Math.round(height)+"px)");
-		$('.main-navigation').css(prop,"translateZ("+Math.round(height/10)+"px)");
-		$('#test').css(prop,"translateZ("+height/10+"px)");
+		$('.main-navigation').css(prop,"translateZ("+200+"px)");
+		// $('.main-navigation ul li a').css("background-color", "red");
+		$('.main-navigation ul li a').css(prop,"translateZ("+200+"px)");
 		$('.two').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
 		$('.three').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
 		$('.four').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
-		$('.five').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*4)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*4)))+"px) rotateY("+rotationAngle*4+"deg)");
 	}
 	</script>
 </html>

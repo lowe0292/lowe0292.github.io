@@ -14,11 +14,11 @@ body {
 	position: relative;
 	height: 500px;
 	width: 500px;
-	-webkit-transition: -webkit-transform 1s linear;
+	-webkit-transition: -webkit-transform 2s ease;
 	-webkit-transform-style: preserve-3d;
 	-webkit-transform-origin: 50% 50%;
 
-	-moz-transition: -moz-transform 1s linear;
+	-moz-transition: -moz-transform 2s ease;
 	-moz-transform-style: preserve-3d;
 	-moz-transform-origin: 50% 50%;
 
@@ -47,6 +47,7 @@ body {
 
 	-moz-transform-style: preserve-3d;
 	-moz-transform-origin: 50% 50%;
+
 }
 
 h1 {
