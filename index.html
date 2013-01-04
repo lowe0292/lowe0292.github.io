@@ -6,31 +6,33 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	</head>
 	<body>
+		<nav class="main-navigation">
+		   <ul>
+		    	</li><li><a id="about" href="#about">about</a>
+		    	</li><li><a id="thoughts" href="#thoughts">thoughts</a>
+		    	</li><li><a id="creations" href="#creations">creations</a>
+		  		</li><li><a id="contact" href="#contact">contact</a>
+		    	</li>
+		   </ul>
+		</nav>
 		<div id="experiment">
 			<div id="cube">
 				<div class="face one">
-					<nav class="main-navigation">
-					   <ul>
-					    	</li><li><a class="about" href="#about">about</a>
-					    	</li><li><a class="thoughts" href="#thoughts">thoughts</a>
-					    	</li><li><a class="creations" href="#creations">creations</a>
-					  		</li><li><a class="contact" href="#contact">contact</a>
-					    	</li>
-					   </ul>
-					</nav>
-					<h1>Hi, I'm Scott Lowe.</h1>
-					<p>...and this is my website. I created it to put some of my new found web development skills to the test and to act as a central hub for everything I do online, from social media to blogging. Have a look around!</p>
+					<h1>ABOUT</h1>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo hic corrupti labore at rerum cum velit nostrum necessitatibus quis itaque in veniam minima! Laboriosam voluptate ipsam tempore ut sint quos et dolor omnis alias sunt deleniti excepturi natus nesciunt unde nobis officia voluptatibus distinctio incidunt impedit autem molestiae eos praesentium! Nobis hic voluptatibus voluptatem nisi dignissimos culpa doloremque quod quos molestias mollitia nam fuga nesciunt dicta error quaerat. Ipsum sapiente harum et quis tempore in debitis! Est eligendi laborum omnis illum temporibus quasi magni enim voluptatum repudiandae facere molestias eius dolores nisi quod ut. Obcaecati tempora provident ad officiis excepturi?
+
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum iste asperiores consequatur illum dolor dolorum itaque corrupti minus. Eum voluptatibus porro laboriosam mollitia quaerat nobis commodi aspernatur dolorum enim non hic magni architecto repellat amet officia assumenda dolores incidunt numquam deserunt iure quia similique inventore quis. Voluptatem error eligendi corporis harum nostrum quisquam dolor iusto. Blanditiis sequi a debitis aspernatur voluptates repellendus hic repellat quaerat dolorum eveniet quisquam nulla soluta! Nostrum illo labore id quia laboriosam adipisci sequi soluta atque recusandae quibusdam. Amet autem iste tempore suscipit explicabo ipsam repellat recusandae harum quos consectetur sint quis repudiandae velit necessitatibus consequatur.</p>
 				</div>
 				<div class="face two">
-					<h1>Side Two</h1>
+					<h1>THOUGHTS</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
 				</div>
 				<div class="face three">
-					<h1>Side Three</h1>
+					<h1>CREATIONS</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
 				</div>
 				<div class="face four">
-					<h1>Side Four</h1>
+					<h1>CONTACT</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
 				</div>
 				<!-- <div class="face five">
@@ -44,113 +46,5 @@
 			</div>
 		</div>
 	</body>
-	<script type="text/javascript">
-
-	//initial setup
-	$(document).ready(
-		function(){
-			//get hash value from url
-			if(window.location.hash) {
-				var hash_value = window.location.hash.replace("#",".");
-				$(hash_value).addClass("selected");
-			} else {
-				//select home by default
-				$('.home').addClass("selected");
-			}
-
-			//set the appropriate size for the cube.
-			resizeExperiment();
-		}
-	);
-
-	//navigation handling
-	$('nav ul li a').click(function(){
-		$('.selected').removeClass("selected");
-		$(this).addClass("selected");
-
-		//actually change the pages here. :)
-		alert('You clicked "'+$(this).text()+'"');
-	});
-
-	$(window).resize(function() {
-		resizeExperiment();
-	});
-
-	var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
-	prop,
-	el = document.createElement('div');
-
-	for(var i = 0, l = props.length; i < l; i++) {
-		if(typeof el.style[props[i]] !== "undefined") {
-			prop = props[i];
-			break;
-		}
-	}
-
-	//coordinate these cube rotations with dynamic
-	var xAngle = 0, yAngle = 0, zAngle = 0;
-    $('body').keydown(function(evt) {
-    	switch(evt.keyCode){
-    		case 37: // left
-				yAngle -= 360;
-				break;
-
-			case 38: // up
-				xAngle += 360;				
-				break;
-
-			case 39: // right
-				yAngle += 360;
-				break;
-
-			case 40: // down
-				xAngle -= 360;
-				break;
-	    	};
-
-    	document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg) rotateZ("+zAngle+"deg)";
-    });
-
-    function toDegrees (angle) {
-		return angle * (180 / Math.PI);
-	}
-
-	function toRadians (angle) {
-  		return angle * (Math.PI / 180);
-	}
-
-	function resizeExperiment(){
-		windowWidth = $(window).innerWidth();
-		windowHeight = $(window).innerHeight();
-		var minDimension = Math.min(windowHeight,windowWidth);
-		//set experiment size based on 10% margin at top and bottom.
-		$('#experiment').css("height",Math.round(minDimension*.8));
-		$('#experiment').css("width",Math.round(minDimension*.8));
-		$('#experiment').css("margin-top",Math.round(minDimension*.1));
-		$('#experiment').css("margin-bottom",Math.round(minDimension*.1));
-
-		//set sizes of the faces and cube
-		$('.face').css("height",Math.round(minDimension*.8));
-		$('.face').css("width",Math.round(minDimension*.8));
-		$('#cube').css("height",Math.round(minDimension*.8));
-		$('#cube').css("width",Math.round(minDimension*.8));
-
-		//find radius of polygon
-		n = 4; //number of sides
-		polygonAngle = ((n-2)*180)/n; //angle between sides
-		rotationAngle = 360/n; //number of rotations for a full spin
-		radius = minDimension / (2*Math.sin(toRadians(180)/n));
-		height = radius*Math.cos(toRadians(rotationAngle)/2);
-
-		//translate side 1 our of the page the appropriate amount
-		// toggle classes
-		$('.one').css(prop,"translateZ("+Math.round(height)+"px)");
-		$('.main-navigation').css(prop,"translateZ("+200+"px)");
-		// $('.main-navigation ul li a').css("background-color", "red");
-		$('.main-navigation ul li a').css(prop,"translateZ("+200+"px)");
-		$('.two').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
-		$('.three').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
-		$('.four').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
-	}
-	</script>
+	<script type="text/javascript" src="script.js"></script>
 </html>

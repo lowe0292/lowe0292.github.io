@@ -1,13 +1,10 @@
 /* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
-* {position:relative;
--moz-box-sizing:border-box;
--webkit-box-sizing:border-box; 
-box-sizing:border-box;
-}
-
-body {
-	font-family: 'Wendy One', sans-serif;
+* {
+	position:relative;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box; 
+	box-sizing:border-box;
 }
 
 #cube{
@@ -21,15 +18,15 @@ body {
 	-moz-transition: -moz-transform 2s ease;
 	-moz-transform-style: preserve-3d;
 	-moz-transform-origin: 50% 50%;
-
 }
 
 #experiment {
-	webkit-perspective: 800px;
-	webkit-perspective-origin: 50% 50%;
-	-moz-perspective: 800px; 
+	-webkit-perspective: 10000;
+	-webkit-perspective-origin: 50% 50%;
+	-moz-perspective: 10000; 
 	-moz-perspective-origin: 50% 50%;
 	margin: auto;
+	z-index: 0;
 }
 
 .face{
@@ -37,28 +34,28 @@ body {
 	height: 500px;
 	width: 500px;
 	line-height: 1em;
-	border: 1px solid #555;
+	border: 1px solid #ddd;
 	border-radius: 3px;
-	background-color: rgba(20, 20, 20, .95);
+	background-color: rgba(0,0,0,.9);
+	overflow-y: auto;
+
+	font-family: "Arial";
 	color: white;
-
-	-webkit-transform-style: preserve-3d;
-	-webkit-transform-origin: 50% 50%;
-
-	-moz-transform-style: preserve-3d;
-	-moz-transform-origin: 50% 50%;
-
+	letter-spacing: 1px;
+	line-height: 20px;
 }
 
 h1 {
 	text-align: center;
-	padding: 15px;
+	padding-top: 40px;
 }
 
 .main-navigation {
+	font-family: 'Wendy One', sans-serif;
 	background-color: #000;
 	color: #fff;
 	text-align: center;
+	z-index: 1;
 }
 
 .main-navigation a {
@@ -78,7 +75,7 @@ h1 {
 	display: inline-block;
 	float: center;
 	border-right: 1px solid #ddd;
-	color: black;
+	color: #333;
 } .main-navigation li:last-child {
 	border-right: none;
 } .main-navigation:hover li {
@@ -110,11 +107,10 @@ nav a {
 }
 
 nav a.selected {
-	background: black;
+	background: #333;
 	color: white;
 }
 
 p {
-	text-align: center;
-	margin: 100px 10%;
+	margin: 10% 10%;
 }
