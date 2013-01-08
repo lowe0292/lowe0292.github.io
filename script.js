@@ -146,10 +146,16 @@ function resizeExperiment(){
 	height = radius*Math.cos(toRadians(rotationAngle)/2);
 
 	//translate the faces to get them in the right spot to build a cube
-	$('.one').css(prop,"translateZ("+Math.round(height)+"px)");
-	$('.two').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
-	$('.three').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
-	$('.four').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
+	$('.face.one').css(prop,"translateZ("+Math.round(height)+"px)");
+	$('.face.two').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
+	$('.face.three').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
+	$('.face.four').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
+
+	//make the titles 10% farther from the origin
+	$('.title.one').css(prop,"translateZ("+Math.round(height*1.10)+"px)");
+	$('.title.two').css(prop,"translateZ("+Math.round(height*1.10*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*1.10*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
+	$('.title.three').css(prop,"translateZ("+Math.round(height*1.10*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.10*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
+	$('.title.four').css(prop,"translateZ("+Math.round(height*1.10*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*1.10*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
 }
 
 function performNavigation(pageName){
