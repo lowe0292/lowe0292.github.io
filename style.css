@@ -49,17 +49,20 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 }
 
 h1 {
+
+} h1.title {
 	position: absolute;
 	text-align: center;
-	padding-top: 40px;
+	padding: 20px 0;
 	width: 100%;
 	color: white;
 	border-radius: 3px;
-	background-color: rgba(0,0,0,.5);
+	background-color: rgba(0,0,0,.3);
 	border: 1px solid #ddd;
-} h1.title {
 	-webkit-transition: -webkit-transform 2s ease;
 	-moz-transition: -moz-transform 2s ease;
+
+	font-family: "Arial";
 }
 
 .main-navigation {

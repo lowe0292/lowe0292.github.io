@@ -90,15 +90,19 @@ $('body').keydown(function(evt) {
 	oldPage = $('.selected').text();
 	switch(evt.keyCode){
 		case 37: // left
-			yAngle += 360 / numberOfNavElements;
-			$('.selected').toggleClass("selected");
-			$("#"+cyclePages("Left",oldPage)).toggleClass("selected");
+			// the following is nav handling.
+			// yAngle += 360 / numberOfNavElements;
+			// $('.selected').toggleClass("selected");
+			// $("#"+cyclePages("Left",oldPage)).toggleClass("selected");
+			zAngle -= 360;
 			break;
 
 		case 39: // right
-			yAngle -= 360 / numberOfNavElements;
-			$('.selected').toggleClass("selected");
-			$("#"+cyclePages("Right",oldPage)).toggleClass("selected");
+			// the following is nav handling.
+			// yAngle -= 360 / numberOfNavElements;
+			// $('.selected').toggleClass("selected");
+			// $("#"+cyclePages("Right",oldPage)).toggleClass("selected");
+			zAngle +=360;
 			break;
 
 		case 38: // up
@@ -151,11 +155,11 @@ function resizeCube(){
 	$('.face.three').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
 	$('.face.four').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
 
-	//make the titles 10% farther from the origin
-	$('.title.one').css(prop,"translateZ("+Math.round(height*1.10)+"px)");
-	$('.title.two').css(prop,"translateZ("+Math.round(height*1.10*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*1.10*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
-	$('.title.three').css(prop,"translateZ("+Math.round(height*1.10*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.10*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
-	$('.title.four').css(prop,"translateZ("+Math.round(height*1.10*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*1.10*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
+	//make the titles 20% farther from the origin
+	$('.title.one').css(prop,"translateZ("+Math.round(height*1.2)+"px)");
+	$('.title.two').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
+	$('.title.three').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
+	$('.title.four').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
 }
 
 function performNavigation(pageName){
