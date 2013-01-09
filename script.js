@@ -82,7 +82,7 @@ $('nav ul li a').click(function(){
 });
 
 $(window).resize(function() {
-	resizeExperiment();
+	resizeCube();
 });
 
 //spin the cube when the user presses left or right
@@ -110,7 +110,7 @@ $('body').keydown(function(evt) {
 			break;
     };
 
-	rotateExperiment(xAngle,yAngle,zAngle);
+	rotateCube(xAngle,yAngle,zAngle);
 });
 
 
@@ -118,11 +118,11 @@ function toRadians (angle) {
 		return angle * (Math.PI / 180);
 }
 
-function rotateExperiment(xAngle, yAngle, zAngle){
+function rotateCube(xAngle, yAngle, zAngle){
 	document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg) rotateZ("+zAngle+"deg)";
 }
 
-function resizeExperiment(){
+function resizeCube(){
 	windowWidth = $(window).innerWidth();
 	windowHeight = $(window).innerHeight();
 	minDimension = Math.min(windowHeight,windowWidth);
@@ -171,9 +171,10 @@ function performNavigation(pageName){
 		xAngle += -360;
 	}
 
+	//navToDegreesMap is an array that stores the correct rotation angle for each face of the cube
 	yAngle = -navToDegreesMap[pageName];
 
-	rotateExperiment(xAngle,yAngle,zAngle);
+	rotateCube(xAngle,yAngle,zAngle);
 }
 
 function selectDefaultPage(){
@@ -198,6 +199,6 @@ $(document).ready(
 			selectDefaultPage();
 		}
 		//set the appropriate size for the cube.
-		resizeExperiment();
+		resizeCube();
 	}
 );
