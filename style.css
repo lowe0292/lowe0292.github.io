@@ -7,10 +7,14 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 	box-sizing:border-box;
 }
 
+body {
+	font-family: 'Wendy One', sans-serif;
+}
+
 #cube{
 	position: relative;
-	height: 500px;
-	width: 500px;
+	height: 960px;
+	width: 960px;
 	-webkit-transition: -webkit-transform 2s ease;
 	-webkit-transform-style: preserve-3d;
 	-webkit-transform-origin: 50% 50%;
@@ -31,15 +35,13 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 .face{
 	position: absolute;
-	height: 500px;
-	width: 500px;
+	height: 960px;
+	width: 960px;
 	line-height: 1em;
 	border: 1px solid #ddd;
 	border-radius: 3px;
 	background-color: rgba(0,0,0,.9);
 	overflow-y: auto;
-
-	font-family: "Arial";
 	color: white;
 	letter-spacing: 1px;
 	line-height: 20px;
@@ -61,12 +63,9 @@ h1 {
 	border: 1px solid #ddd;
 	-webkit-transition: -webkit-transform 2s ease;
 	-moz-transition: -moz-transform 2s ease;
-
-	font-family: "Arial";
 }
 
 .main-navigation {
-	font-family: 'Wendy One', sans-serif;
 	background-color: #000;
 	color: #fff;
 	text-align: center;
