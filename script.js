@@ -81,28 +81,24 @@ $('nav ul li a').click(function(){
 	performNavigation(newPage);
 });
 
-$(window).resize(function() {
-	resizeCube();
-});
-
 //spin the cube when the user presses left or right
 $('body').keydown(function(evt) {
 	oldPage = $('.selected').text();
 	switch(evt.keyCode){
 		case 37: // left
-			// the following is nav handling.
-			// yAngle += 360 / numberOfNavElements;
-			// $('.selected').toggleClass("selected");
-			// $("#"+cyclePages("Left",oldPage)).toggleClass("selected");
-			zAngle -= 360;
+			//the following is nav handling.
+			yAngle += 360 / numberOfNavElements;
+			$('.selected').toggleClass("selected");
+			$("#"+cyclePages("Left",oldPage)).toggleClass("selected");
+			// zAngle -= 360;
 			break;
 
 		case 39: // right
-			// the following is nav handling.
-			// yAngle -= 360 / numberOfNavElements;
-			// $('.selected').toggleClass("selected");
-			// $("#"+cyclePages("Right",oldPage)).toggleClass("selected");
-			zAngle +=360;
+			//the following is nav handling.
+			yAngle -= 360 / numberOfNavElements;
+			$('.selected').toggleClass("selected");
+			$("#"+cyclePages("Right",oldPage)).toggleClass("selected");
+			//zAngle +=360;
 			break;
 
 		case 38: // up
@@ -126,27 +122,26 @@ function rotateCube(xAngle, yAngle, zAngle){
 	document.getElementById('cube').style[prop] = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg) rotateZ("+zAngle+"deg)";
 }
 
-function resizeCube(){
-	windowWidth = $(window).innerWidth();
-	windowHeight = $(window).innerHeight();
-	minDimension = Math.min(windowHeight,windowWidth);
+function initializeCube(){
+
+	diameter = 960;
 	//set experiment size based on 10% margin at top and bottom.
-	$('#experiment').css("height",Math.round((minDimension-43)*.8));
-	$('#experiment').css("width",Math.round((minDimension-43)*.8));
-	$('#experiment').css("margin-top",Math.round((minDimension-43)*.1));
-	$('#experiment').css("margin-bottom",Math.round((minDimension-43)*.1));
+	$('#experiment').css("height",Math.round((diameter-43)*.8));
+	$('#experiment').css("width",Math.round((diameter-43)*.8));
+	$('#experiment').css("margin-top",Math.round((diameter-43)*.1));
+	$('#experiment').css("margin-bottom",Math.round((diameter-43)*.1));
 
 	//set sizes of the faces and cube
-	$('.face').css("height",Math.round((minDimension-43)*.8));
-	$('.face').css("width",Math.round((minDimension-43)*.8));
-	$('#cube').css("height",Math.round((minDimension-43)*.8));
-	$('#cube').css("width",Math.round((minDimension-43)*.8));
+	$('.face').css("height",Math.round((diameter-43)*.8));
+	$('.face').css("width",Math.round((diameter-43)*.8));
+	$('#cube').css("height",Math.round((diameter-43)*.8));
+	$('#cube').css("width",Math.round((diameter-43)*.8));
 
 	//find radius of polygon
 	n = 4; //number of sides
 	polygonAngle = ((n-2)*180)/n; //angle between sides
 	rotationAngle = 360/n; //number of rotations for a full spin
-	radius = minDimension / (2*Math.sin(toRadians(180)/n));
+	radius = diameter / (2*Math.sin(toRadians(180)/n));
 	height = radius*Math.cos(toRadians(rotationAngle)/2);
 
 	//translate the faces to get them in the right spot to build a cube
@@ -160,6 +155,10 @@ function resizeCube(){
 	$('.title.two').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
 	$('.title.three').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
 	$('.title.four').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
+
+
+
+	//turn on transition speeds now that the cube is built
 }
 
 function performNavigation(pageName){
@@ -203,6 +202,6 @@ $(document).ready(
 			selectDefaultPage();
 		}
 		//set the appropriate size for the cube.
-		resizeCube();
+		initializeCube();
 	}
 );

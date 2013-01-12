@@ -54,13 +54,16 @@ h1 {
 
 } h1.title {
 	position: absolute;
-	text-align: center;
-	padding: 20px 0;
+	text-align: left;
+	padding: 50px 0px 20px 0px;
 	width: 100%;
 	color: white;
 	border-radius: 3px;
 	background-color: rgba(0,0,0,.3);
 	border: 1px solid #ddd;
+	line-height:20px;
+	font-size: 100px;
+	letter-spacing: 15px;
 	-webkit-transition: -webkit-transform 2s ease;
 	-moz-transition: -moz-transform 2s ease;
 }
