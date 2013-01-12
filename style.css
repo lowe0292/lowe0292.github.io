@@ -24,6 +24,13 @@ body {
 	-moz-transform-origin: 50% 50%;
 }
 
+div.title-spotholder {
+	display: inline-block;
+	text-align: left;
+	width: 100%;
+	height: 80px;
+} 
+
 #experiment {
 	-webkit-perspective: 10000;
 	-webkit-perspective-origin: 50% 50%;
@@ -41,7 +48,7 @@ body {
 	border: 1px solid #ddd;
 	border-radius: 3px;
 	background-color: rgba(0,0,0,.9);
-	overflow-y: auto;
+	overflow: none;
 	color: white;
 	letter-spacing: 1px;
 	line-height: 20px;
@@ -60,6 +67,35 @@ h1 {
 	color: white;
 	border-radius: 3px;
 	background-color: rgba(0,0,0,.3);
+	border: 1px solid #ddd;
+	line-height:20px;
+	font-size: 100px;
+	letter-spacing: 15px;
+	-webkit-transition: -webkit-transform 2s ease;
+	-moz-transition: -moz-transform 2s ease;
+}
+
+iframe {
+
+} iframe.media.three {
+	position: absolute;
+	margin:150px 48px 50px 48px;
+	border-radius: 3px;
+	border: 1px solid #ddd;
+	-webkit-transition: -webkit-transform 2s ease;
+	-moz-transition: -moz-transform 2s ease;
+}
+
+img {
+
+} img.media.one {
+	position: fixed;
+	right: 0px;
+	margin: 180px 70px 180px 0px; 
+	height: 364px;
+	width: 304px;
+	color: white;
+	border-radius: 3px;
 	border: 1px solid #ddd;
 	line-height:20px;
 	font-size: 100px;
@@ -129,5 +165,13 @@ nav a.selected {
 }
 
 p {
-	margin: 10% 10%;
+	float: left;
+} p.one {
+	text-align: right;
+	margin: 180px 0px 0px 50px;
+	width: 300px;
+	height: 364px;
+} p.four {
+	margin: 100px auto;
+
 }

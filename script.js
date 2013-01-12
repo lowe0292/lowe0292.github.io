@@ -156,7 +156,9 @@ function initializeCube(){
 	$('.title.three').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
 	$('.title.four').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
 
-
+	//make the media 10% farther away from the origin
+	$('.media.one').css(prop,"translateZ("+Math.round(height*1.1)+"px)");
+	$('.media.three').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
 
 	//turn on transition speeds now that the cube is built
 }
