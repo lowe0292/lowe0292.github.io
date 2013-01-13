@@ -11,6 +11,19 @@ body {
 	font-family: 'Wendy One', sans-serif;
 }
 
+a.link {
+	position: absolute;
+	background-color: #5112C5;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 3px;
+	padding: 10px;
+	font-size: 18pt;
+} a.link:hover {
+	color: #5112C5;
+	background-color: #fff;
+}
+
 #cube{
 	position: relative;
 	height: 960px;
@@ -24,12 +37,33 @@ body {
 	-moz-transform-origin: 50% 50%;
 }
 
-div.title-spotholder {
+div#blog-sample {
+	padding: 100px 0px 0px 0px;
+} div#blog-sample #blog-title {
 	display: inline-block;
-	text-align: left;
-	width: 100%;
-	height: 80px;
-} 
+	text-decoration: none;
+	font-size: 22pt;
+	color: white;
+	padding: 20px;
+	margin: 30px 0px 0px 50px;
+	border-radius: 3px;
+	width: 200px;
+} div#blog-sample #blog-title:hover {
+	background-color: white;
+	color: black;
+} div#blog-sample p {
+	text-indent:50px;
+	padding: 20px 100px;
+	text-align: right;
+} div#blog-sample #content-wrapper {
+	width: 745px;
+	height: 300px;
+	overflow: hidden;
+} div#blog-sample #ellipsis {
+	text-align: right;
+	width: 645px;
+	margin: 0px;
+}
 
 #experiment {
 	-webkit-perspective: 10000;
@@ -105,7 +139,6 @@ img {
 }
 
 .main-navigation {
-	background-color: #000;
 	color: #fff;
 	text-align: center;
 	z-index: 1;
@@ -119,6 +152,7 @@ img {
 	color: inherit;
 	margin: 3px;
 	font-size: 15pt;
+	background-color: rgba(1,1,1,0);
 } .main-navigation a:hover {
 	background: #5112C5;
 	color: white;
@@ -155,7 +189,6 @@ nav {
 }
 
 nav a {
-	color: inherit;
 	text-decoration: none;
 }
 
