@@ -3,9 +3,7 @@
 if(isset($_SERVER['HTTP_USER_AGENT'])){
     $agent = $_SERVER['HTTP_USER_AGENT'];
 }
-if(strlen(strstr($agent,"Firefox")) > 0 ){
-	$browser = 'Firefox';
-} else if(strlen(strstr($agent,"Chrome")) > 0 ){
+if(strlen(strstr($agent,"Chrome")) > 0 ){
 	$browser = 'Chome';
 } else if(strlen(strstr($agent,"Safari")) > 0 ){
 	$browser = 'Safari';

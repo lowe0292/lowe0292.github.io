@@ -194,6 +194,8 @@ img {
 	float: center;
 	border-right: 1px solid #ddd;
 	color: #333;
+	margin: 0px;
+	padding: 0px;
 } .main-navigation li:last-child {
 	border-right: none;
 } .main-navigation:hover li {
@@ -210,7 +212,8 @@ img {
 	background: -o-linear-gradient(top, #fff 0%, #ddd 100%);
 	background: -ms-linear-gradient(top, #fff 0%, #ddd 100%);
 	background: linear-gradient(top, #fff 0%, #ddd 100%);
-	padding: 3px 0px 0px 0px;
+	padding: 0px;
+	margin: 0px;
 	zoom: 1;
 	overflow: hidden;
 }
