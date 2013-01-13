@@ -22,6 +22,10 @@ a.link {
 } a.link:hover {
 	color: #5112C5;
 	background-color: #fff;
+} a.link.four {
+	position: static;
+	display: block;
+	margin: 10px;
 }
 
 #cube{
@@ -49,8 +53,8 @@ div#blog-sample {
 	border-radius: 3px;
 	width: 200px;
 } div#blog-sample #blog-title:hover {
-	background-color: white;
-	color: black;
+	color: #5112C5;
+	background-color: #fff;
 } div#blog-sample p {
 	text-indent:50px;
 	padding: 20px 100px;
@@ -136,6 +140,19 @@ img {
 	letter-spacing: 15px;
 	-webkit-transition: -webkit-transform 2s ease;
 	-moz-transition: -moz-transform 2s ease;
+}
+
+#link-two-wrapper {
+	-webkit-transition: -webkit-transform 2s ease;
+	-moz-transition: -moz-transform 2s ease;
+}
+
+#link-four-wrapper {
+	-webkit-transition: -webkit-transform 2s ease;
+	-moz-transition: -moz-transform 2s ease;
+	border-radius: 3px;
+	background-color: rgba(0,0,0,.5);
+	border: 1px solid #ddd;
 }
 
 .main-navigation {

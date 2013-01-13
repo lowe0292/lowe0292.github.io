@@ -160,8 +160,21 @@ function initializeCube(){
 	$('.media.one').css(prop,"translateZ("+Math.round(height*1.1)+"px)");
 	$('#link-two-wrapper').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle)) - 375)+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg) translateY(600px)");
 	$('.media.three').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
+	$('#link-four-wrapper').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg) translateY(235px)");
+	
+	//resize somethings now that they're moved.
+	$('#link-four-wrapper').css("width","450px");
+	$('#link-four-wrapper').css("margin","auto");
 
-	//turn on transition speeds now that the cube is built
+	//turn on transition speeds now that the cube is built. TODO: remove these animation triggers from the CSS
+	//laundry list:
+	//#cube
+	//.face
+	//h1.title
+	//iframe.media.three
+	//img.media.one
+	//#link-two-wrapper
+	//#link-four-wrapper
 }
 
 function performNavigation(pageName){

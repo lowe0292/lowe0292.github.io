@@ -48,13 +48,20 @@
 						<div id="ellipsis">...</div>
 					</div>
 				</div>
-				<div id="link-two-wrapper"><?php echo '<a class="link two" target=frame2 href="http://scottdlowe.tumblr.com">Read More on Tumblr</a>';  ?></div>
+				<div id="link-two-wrapper"><?php echo '<a class="link two" href="http://scottdlowe.tumblr.com">Read More on Tumblr</a>';  ?></div>
 				<h1 class="title two">thoughts</h1>
 				<div class="face three"></div>
 				<h1 class="title three">creations</h1>
 				<iframe class="media three" width="640" height="480" src="http://www.youtube.com/embed/2zrCGH0TqI4" frameborder="0"></iframe>
 				<div class="face four"></div>
 				<h1 class="title four">contact</h1>
+				<div id="link-four-wrapper">
+					<a href="http://www.linkedin.com/pub/scott-lowe/41/b68/1a2" class="link four">Connect with me on Linkedin</a>
+					<a href="https://twitter.com/scott_d_lowe" class="link four">Follow me on Twitter</a>
+					<a href="https://github.com/lowe0292" class="link four">Collaborate with me on GitHub</a>
+					<a href="https://delicious.com/lowe0292" class="link four">See my bookmarks on Delicious</a>
+					<a href="mailto:me@scottdlowe.com" class="link four">Email me@scottdlowe.com</a>
+				</div>
 				<!-- <div class="face five">
 					<h1>Side Five</h1>
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo ad quibusdam consequuntur sapiente officia natus reprehenderit doloribus in dolores dolorum beatae praesentium rerum ipsum recusandae odio autem quis nisi nam.</p>
