@@ -1,9 +1,29 @@
+<?php
+
+if(isset($_SERVER['HTTP_USER_AGENT'])){
+    $agent = $_SERVER['HTTP_USER_AGENT'];
+}
+if(strlen(strstr($agent,"Firefox")) > 0 ){
+	$browser = 'Firefox';
+} else if(strlen(strstr($agent,"Chrome")) > 0 ){
+	$browser = 'Chome';
+} else if(strlen(strstr($agent,"Safari")) > 0 ){
+	$browser = 'Safari';
+} else {
+	header("Location: browser.html");
+}
+
+?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<link href='http://fonts.googleapis.com/css?family=Wendy+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Nunito:300' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<meta name="description" content="Scott Lowe's personal website">
+		<meta name="keywords" content="Scott Lowe ScottDLowe">
+		<meta name="author" content="Scott Lowe">
 	</head>
 	<body>
 		<nav class="main-navigation">
@@ -21,9 +41,9 @@
 					<p class="one">
 						Hi, I'm Scott Lowe.
 						<br><br>
-						I'm a 2012 Venture For America fellow, and I currently do design and testing at a small software shop in Detroit.
+						I'm a 2012 Venture For America fellow, and I currently do design and testing at a small software shop in Detroit called Digerati.
 						<br><br>
-						I'm a self-diagnosed ideallist who gets interested in things easily. In college I studied Engineering Physics with a design sequence in Artificial Intelligence and a minor in Mathematics, but I also picked up a strong interest in Economics during my stay at the University of Oklahoma.
+						A self-diagnosed ideallist, I'm infinitely curious about the world and how it works. I just graduated from the University of Oklahoma where I studied Engineering Physics with a design sequence in Artificial Intelligence and a minor in Mathematics, but I also picked up strong interests in Economics and Entrepreneurship during my stay.
 						<br><br>
 						Thanks for coming to my site :)
 					</p>
@@ -39,7 +59,7 @@
 							$title = $xml->posts->post->{'regular-title'};
 							$post = $xml->posts->post->{'regular-body'};
 							$link = $xml->posts->post['url'];
-							$small_post = substr($post,0,700);
+							$small_post = substr($post,0,1000);
 							echo '<a href="'.$link.'" id="blog-title">'.$title.'</a>';
 							echo '<div id="content-wrapper">';
 							echo $small_post;

@@ -51,22 +51,23 @@ div#blog-sample {
 	padding: 20px;
 	margin: 30px 0px 0px 50px;
 	border-radius: 3px;
-	width: 200px;
+	width: auto;
+	line-height: 30px;
 } div#blog-sample #blog-title:hover {
 	color: #5112C5;
 	background-color: #fff;
 } div#blog-sample p {
 	text-indent:50px;
-	padding: 20px 100px;
-	text-align: right;
+	padding: 20px 75px;
+	text-align: justify;
 } div#blog-sample #content-wrapper {
-	width: 745px;
+	width: 730px;
 	height: 300px;
 	overflow: hidden;
 } div#blog-sample #ellipsis {
-	text-align: right;
+	text-align: left;
 	width: 645px;
-	margin: 0px;
+	margin: 0px 0px 0px 75px;
 }
 
 #experiment {
@@ -90,6 +91,7 @@ div#blog-sample {
 	color: white;
 	letter-spacing: 1px;
 	line-height: 20px;
+	font-family: 'Nunito', sans-serif;
 
 	-webkit-transition: -webkit-transform 2s ease;
 	-moz-transition: -moz-transform 2s ease;
@@ -100,7 +102,7 @@ h1 {
 } h1.title {
 	position: absolute;
 	text-align: left;
-	padding: 50px 0px 20px 0px;
+	padding: 50px 0px 30px 10px;
 	width: 100%;
 	color: white;
 	border-radius: 3px;
@@ -111,6 +113,18 @@ h1 {
 	letter-spacing: 15px;
 	-webkit-transition: -webkit-transform 2s ease;
 	-moz-transition: -moz-transform 2s ease;
+} h1#error {
+	color: #ddd;
+	font-size: 400px;
+	float: left;
+	z-index: -1;
+	width: 1000px;
+	text-align: right;
+	font-family: "Courier New";
+	letter-spacing: -150px;
+	overflow: hidden;
+	display: inline-block;
+	padding: 0 200px 0 0;
 }
 
 iframe {
@@ -196,7 +210,7 @@ img {
 	background: -o-linear-gradient(top, #fff 0%, #ddd 100%);
 	background: -ms-linear-gradient(top, #fff 0%, #ddd 100%);
 	background: linear-gradient(top, #fff 0%, #ddd 100%);
-	padding: 0px;
+	padding: 3px 0px 0px 0px;
 	zoom: 1;
 	overflow: hidden;
 }
@@ -221,7 +235,12 @@ p {
 	margin: 180px 0px 0px 50px;
 	width: 300px;
 	height: 364px;
+	line-height: 19px;
 } p.four {
 	margin: 100px auto;
 
+} p#advice {
+	margin: 100px;
+	font-size: 50px;
+	float: right;
 }
