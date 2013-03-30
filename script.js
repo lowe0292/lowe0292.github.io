@@ -11,6 +11,8 @@ for(var i = 0, l = props.length; i < l; i++) {
 }
 
 //determine the mapping from nav element to yAngle rotation
+//TODO: Update this implementation to take the smallest jump to the new page,
+//rather than hardcoding the angles. That would stop the jump when you click a button
 var navToDegreesMap = new Array();
 $('.main-navigation').children().children().each(function(index){
 	navToDegreesMap[$(this).children().text()] = index;
@@ -123,16 +125,16 @@ function initializeCube(){
 
 	diameter = 760;
 	//set experiment size based on 10% margin at top and bottom.
-	$('#experiment').css("height",Math.round((diameter)*.9));
-	$('#experiment').css("width",Math.round((diameter)*.9));
+	$('#experiment').css("2*height",Math.round((diameter)*.9));
+	$('#experiment').css("width",Math.round((diameter)*1.2));
 	$('#experiment').css("margin-top",Math.round((diameter)*.05));
 	$('#experiment').css("margin-bottom",Math.round((diameter)*.05));
 
 	//set sizes of the faces and cube
 	$('.face').css("height",Math.round((diameter)*.9));
-	$('.face').css("width",Math.round((diameter)*.9));
+	$('.face').css("width",Math.round((diameter)*1.2));
 	$('#cube').css("height",Math.round((diameter)*.9));
-	$('#cube').css("width",Math.round((diameter)*.9));
+	$('#cube').css("width",Math.round((diameter)*1.2));
 
 	//find radius of polygon
 	n = 4; //number of sides
@@ -142,22 +144,22 @@ function initializeCube(){
 	height = radius*Math.cos(toRadians(rotationAngle)/2);
 
 	//translate the faces to get them in the right spot to build a cube
-	$('.face.one').css(prop,"translateZ("+Math.round(height)+"px)");
-	$('.face.two').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
-	$('.face.three').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
-	$('.face.four').css(prop,"translateZ("+Math.round(height*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
+	$('.face.one').css(prop,"translateZ("+Math.round(2*height)+"px)");
+	$('.face.two').css(prop,"translateZ("+Math.round(2*height*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(2*height*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
+	$('.face.three').css(prop,"translateZ("+Math.round(2*height*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(2*height*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
+	$('.face.four').css(prop,"translateZ("+Math.round(2*height*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(2*height*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
 
 	//make the titles 20% farther from the origin
-	$('.title.one').css(prop,"translateZ("+Math.round(height*1.2)+"px)");
-	$('.title.two').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
-	$('.title.three').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
-	$('.title.four').css(prop,"translateZ("+Math.round(height*1.2*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*1.2*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
+	$('.title.one').css(prop,"translateZ("+Math.round(2*height*1.2)+"px)");
+	$('.title.two').css(prop,"translateZ("+Math.round(2*height*1.2*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(2*height*1.2*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg)");
+	$('.title.three').css(prop,"translateZ("+Math.round(2*height*1.2*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(2*height*1.2*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
+	$('.title.four').css(prop,"translateZ("+Math.round(2*height*1.2*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(2*height*1.2*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg)");
 
 	//make the media 10% farther away from the origin
-	$('.media.one').css(prop,"translateZ("+Math.round(height*1.1)+"px)");
-	$('#link-two-wrapper').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg) translateY(600px)");
-	$('.media.three').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
-	$('#link-four-wrapper').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg) translateY(235px)");
+	$('.media.one').css(prop,"translateZ("+Math.round(2*height*1.1)+"px)");
+	$('#link-two-wrapper').css(prop,"translateZ("+Math.round(2*height*1.1*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(2*height*1.1*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg) translateY(600px)");
+	$('.media.three').css(prop,"translateZ("+Math.round(2*height*1.1*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(2*height*1.1*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
+	$('#link-four-wrapper').css(prop,"translateZ("+Math.round(2*height*1.1*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(2*height*1.1*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg) translateY(235px)");
 	
 	//resize somethings now that they're moved.
 	$('#link-four-wrapper').css("width","450px");

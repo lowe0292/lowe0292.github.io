@@ -8,7 +8,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 }
 
 body {
-	font-family: 'Wendy One', sans-serif;
+	font-family: 'Julius Sans One', sans-serif;
 }
 
 a.link {
@@ -257,11 +257,12 @@ nav a.selected {
 p {
 	float: left;
 } p.one {
-	text-align: right;
-	margin: 180px 0px 0px 20px;
+	text-align: left;
+	margin: 100px 0px 0px 20px;
 	width: 300px;
 	height: 364px;
-	line-height: 19px;
+	line-height: 30px;
+
 } p.four {
 	margin: 100px auto;
 
@@ -273,9 +274,11 @@ p {
 
 #left-arrow {
 	right: 200px;
+	z-index: 10;
 }
 #right-arrow {
 	left: 200px;
+	z-index: 10;
 }
 .arrow {
 	font-size: 400px;
