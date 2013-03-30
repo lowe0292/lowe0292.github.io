@@ -28,6 +28,19 @@ a.link {
 	margin: 10px;
 }
 
+.clearfix {
+	clear: both;
+}
+
+#container {
+	text-align: center;
+}
+
+#content {
+	margin-top: 128px;
+	display: inline-block;
+}
+
 #cube{
 	position: relative;
 	height: 960px;
@@ -49,25 +62,22 @@ div#blog-sample {
 	font-size: 22pt;
 	color: white;
 	padding: 20px;
-	margin: 30px 0px 0px 50px;
+	margin: 30px 15px 15px 15px;
 	border-radius: 3px;
 	width: auto;
+	float: left;
 	line-height: 30px;
 } div#blog-sample #blog-title:hover {
 	color: #5112C5;
 	background-color: #fff;
 } div#blog-sample p {
 	text-indent:50px;
-	padding: 20px 75px;
+	margin: 0px auto;
 	text-align: justify;
 } div#blog-sample #content-wrapper {
-	width: 730px;
-	height: 300px;
 	overflow: hidden;
-} div#blog-sample #ellipsis {
-	text-align: left;
-	width: 645px;
-	margin: 0px 0px 0px 75px;
+	padding: 0 40px 0 40px;
+	clear: both;
 }
 
 #experiment {
@@ -75,8 +85,9 @@ div#blog-sample {
 	-webkit-perspective-origin: 50% 50%;
 	-moz-perspective: 10000; 
 	-moz-perspective-origin: 50% 50%;
-	margin: auto;
 	z-index: 0;
+	float: left;
+	display: inline-block;
 }
 
 .face{
@@ -95,7 +106,16 @@ div#blog-sample {
 
 	-webkit-transition: -webkit-transform 2s ease;
 	-moz-transition: -moz-transform 2s ease;
+} .face.three > a {
+	color: white;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	text-decoration: none;
+} .face.three > a:hover {
+	text-decoration: underline;
 }
+
 
 h1 {
 
@@ -131,7 +151,8 @@ iframe {
 
 } iframe.media.three {
 	position: absolute;
-	margin:150px 48px 50px 48px;
+	top: 150px;
+	right: 20px;
 	border-radius: 3px;
 	border: 1px solid #ddd;
 	-webkit-transition: -webkit-transform 2s ease;
@@ -143,7 +164,7 @@ img {
 } img.media.one {
 	position: fixed;
 	right: 0px;
-	margin: 180px 70px 180px 0px; 
+	margin: 180px 50px 180px 0px; 
 	height: 364px;
 	width: 304px;
 	color: white;
@@ -173,6 +194,8 @@ img {
 	color: #fff;
 	text-align: center;
 	z-index: 1;
+	position: fixed;
+	top: 0;
 }
 
 .main-navigation a {
@@ -235,7 +258,7 @@ p {
 	float: left;
 } p.one {
 	text-align: right;
-	margin: 180px 0px 0px 50px;
+	margin: 180px 0px 0px 20px;
 	width: 300px;
 	height: 364px;
 	line-height: 19px;
@@ -246,4 +269,22 @@ p {
 	margin: 100px;
 	font-size: 50px;
 	float: right;
+}
+
+#left-arrow {
+	right: 200px;
+}
+#right-arrow {
+	left: 200px;
+}
+.arrow {
+	font-size: 400px;
+	float: left;
+	margin-top: 200px;
+	position: relative;
+	font-family: 'Caesar Dressing', sans-serif;
+} .arrow:hover {
+	color: white;
+	text-shadow: 10px 10px #5112C5;
+	cursor: pointer;
 }

@@ -77,7 +77,6 @@ $('nav ul li a').click(function(){
 	var newPage = $(this).text();
 	$('.selected').removeClass("selected");
 	$(this).addClass("selected");
-	//generate random spins for x and z
 	performNavigation(newPage);
 });
 
@@ -87,26 +86,24 @@ $('body').keydown(function(evt) {
 	switch(evt.keyCode){
 		case 37: // left
 			//the following is nav handling.
-			yAngle += 360 / numberOfNavElements;
+			yAngle -= 360 / numberOfNavElements;
 			$('.selected').toggleClass("selected");
-			$("#"+cyclePages("Left",oldPage)).toggleClass("selected");
-			// zAngle -= 360;
+			$("#"+cyclePages("Right",oldPage)).toggleClass("selected");
 			break;
 
 		case 39: // right
 			//the following is nav handling.
-			yAngle -= 360 / numberOfNavElements;
+			yAngle += 360 / numberOfNavElements;
 			$('.selected').toggleClass("selected");
-			$("#"+cyclePages("Right",oldPage)).toggleClass("selected");
-			//zAngle +=360;
+			$("#"+cyclePages("Left",oldPage)).toggleClass("selected");
 			break;
 
 		case 38: // up
-			xAngle -= 360;
+			xAngle += 360;
 			break;
 
 		case 40: //down
-			xAngle += 360;
+			xAngle -= 360;
 			break;
     };
 
@@ -124,18 +121,18 @@ function rotateCube(xAngle, yAngle, zAngle){
 
 function initializeCube(){
 
-	diameter = 960;
+	diameter = 760;
 	//set experiment size based on 10% margin at top and bottom.
-	$('#experiment').css("height",Math.round((diameter-43)*.8));
-	$('#experiment').css("width",Math.round((diameter-43)*.8));
-	$('#experiment').css("margin-top",Math.round((diameter-43)*.1));
-	$('#experiment').css("margin-bottom",Math.round((diameter-43)*.1));
+	$('#experiment').css("height",Math.round((diameter)*.9));
+	$('#experiment').css("width",Math.round((diameter)*.9));
+	$('#experiment').css("margin-top",Math.round((diameter)*.05));
+	$('#experiment').css("margin-bottom",Math.round((diameter)*.05));
 
 	//set sizes of the faces and cube
-	$('.face').css("height",Math.round((diameter-43)*.8));
-	$('.face').css("width",Math.round((diameter-43)*.8));
-	$('#cube').css("height",Math.round((diameter-43)*.8));
-	$('#cube').css("width",Math.round((diameter-43)*.8));
+	$('.face').css("height",Math.round((diameter)*.9));
+	$('.face').css("width",Math.round((diameter)*.9));
+	$('#cube').css("height",Math.round((diameter)*.9));
+	$('#cube').css("width",Math.round((diameter)*.9));
 
 	//find radius of polygon
 	n = 4; //number of sides
@@ -158,13 +155,29 @@ function initializeCube(){
 
 	//make the media 10% farther away from the origin
 	$('.media.one').css(prop,"translateZ("+Math.round(height*1.1)+"px)");
-	$('#link-two-wrapper').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle)) - 375)+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg) translateY(600px)");
+	$('#link-two-wrapper').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg) translateY(600px)");
 	$('.media.three').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
 	$('#link-four-wrapper').css(prop,"translateZ("+Math.round(height*1.1*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(height*1.1*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg) translateY(235px)");
 	
 	//resize somethings now that they're moved.
 	$('#link-four-wrapper').css("width","450px");
 	$('#link-four-wrapper').css("margin","auto");
+
+	//set click listeners for arrows
+	$("#left-arrow").click(function(){
+		oldPage = $('.selected').text();
+		yAngle -= 360 / numberOfNavElements;
+		rotateCube(xAngle,yAngle,zAngle);
+		$('.selected').toggleClass("selected");
+		$("#"+cyclePages("Right",oldPage)).toggleClass("selected");
+	})
+	$("#right-arrow").click(function(){
+		oldPage = $('.selected').text();
+		yAngle += 360 / numberOfNavElements;
+		rotateCube(xAngle,yAngle,zAngle);
+		$('.selected').toggleClass("selected");
+		$("#"+cyclePages("Left",oldPage)).toggleClass("selected");
+	})
 
 	//turn on transition speeds now that the cube is built. TODO: remove these animation triggers from the CSS
 	//laundry list:
@@ -179,16 +192,16 @@ function initializeCube(){
 
 function performNavigation(pageName){
 	//generate random spins for x and z
-	if(Math.random() > .5){
-		zAngle += 360;
-	} else {
-		zAngle += -360;
-	}
-	if(Math.random() > .5){
-		xAngle += 360;
-	} else {
-		xAngle += -360;
-	}
+	// if(Math.random() > .5){
+	// 	zAngle += 360;
+	// } else {
+	// 	zAngle += -360;
+	// }
+	// if(Math.random() > .5){
+	// 	xAngle += 360;
+	// } else {
+	// 	xAngle += -360;
+	// }
 
 	//navToDegreesMap is an array that stores the correct rotation angle for each face of the cube
 	yAngle = -navToDegreesMap[pageName];
