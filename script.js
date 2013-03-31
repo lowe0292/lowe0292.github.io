@@ -10,9 +10,6 @@ for(var i = 0, l = props.length; i < l; i++) {
 	}
 }
 
-//determine the mapping from nav element to yAngle rotation
-//TODO: Update this implementation to take the smallest jump to the new page,
-//rather than hardcoding the angles. That would stop the jump when you click a button
 var navToDegreesMap = new Array();
 $('.main-navigation').children().children().each(function(index){
 	navToDegreesMap[$(this).children().text()] = index;
@@ -77,9 +74,10 @@ var zAngle = 0;
 //navigation listener
 $('nav ul li a').click(function(){
 	var newPage = $(this).text();
+	var oldPage = $('.selected').text();
 	$('.selected').removeClass("selected");
 	$(this).addClass("selected");
-	performNavigation(newPage);
+	performNavigation(oldPage, newPage);
 });
 
 //spin the cube when the user presses left or right
@@ -100,13 +98,13 @@ $('body').keydown(function(evt) {
 			$("#"+cyclePages("Left",oldPage)).toggleClass("selected");
 			break;
 
-		case 38: // up
-			xAngle += 360;
-			break;
+		// case 38: // up
+		// 	xAngle += 360;
+		// 	break;
 
-		case 40: //down
-			xAngle -= 360;
-			break;
+		// case 40: //down
+		// 	xAngle -= 360;
+		// 	break;
     };
 
 	rotateCube(xAngle,yAngle,zAngle);
@@ -192,8 +190,8 @@ function initializeCube(){
 	//#link-four-wrapper
 }
 
-function performNavigation(pageName){
-	//generate random spins for x and z
+function performNavigation(newPage, oldPage){
+	//generate random spins for x and z for roller coaster shit
 	// if(Math.random() > .5){
 	// 	zAngle += 360;
 	// } else {
@@ -205,9 +203,29 @@ function performNavigation(pageName){
 	// 	xAngle += -360;
 	// }
 	
+	//Determine how many times you have to turn to the right before getting to new Page
+	currentPage = oldPage;
+	counter = 0;
+	while(currentPage != newPage) {
+		currentPage = cyclePages("Right", currentPage);
+		counter+=1;
+	}
+	leftCounter = counter;
+	currentPage = oldPage;
+	counter = 0;
+	while(currentPage != newPage) {
+		currentPage = cyclePages("Left", currentPage);
+		counter+=1;
+	}
+	rightCounter = counter;
 
-	//navToDegreesMap is an array that stores the correct rotation angle for each face of the cube
-	yAngle = -navToDegreesMap[pageName];
+	if(rightCounter < leftCounter){
+		//spin right
+		yAngle -= 90 * rightCounter;
+	} else {
+		//spin left
+		yAngle += (90 * leftCounter);
+	}
 
 	rotateCube(xAngle,yAngle,zAngle);
 }
@@ -226,7 +244,7 @@ $(document).ready(
 			//determine if hash value is actually a page
 			if(pageName in navToDegreesMap){
 				$(hash_value).addClass("selected");	
-				performNavigation(pageName);
+				performNavigation("about",pageName);
 			} else {
 				selectDefaultPage();
 			}
