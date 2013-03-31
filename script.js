@@ -157,12 +157,12 @@ function initializeCube(){
 
 	//make the media 10% farther away from the origin
 	$('.media.one').css(prop,"translateZ("+Math.round(2*height*1.1)+"px)");
-	$('#link-two-wrapper').css(prop,"translateZ("+Math.round(2*height*1.1*Math.sin(toRadians(90-rotationAngle)))+"px) translateX("+Math.round(2*height*1.1*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg) translateY(600px)");
+	$('#link-two-wrapper').css(prop,"translateZ("+Math.round(2*height*1.1*Math.sin(toRadians(90-rotationAngle))-90)+"px) translateX("+Math.round(2*height*1.1*Math.cos(toRadians(90-rotationAngle)))+"px) rotateY("+rotationAngle+"deg) translateY(600px)");
 	$('.media.three').css(prop,"translateZ("+Math.round(2*height*1.1*Math.sin(toRadians(90-rotationAngle*2)))+"px) translateX("+Math.round(2*height*1.1*Math.cos(toRadians(90-rotationAngle*2)))+"px) rotateY("+rotationAngle*2+"deg)");
 	$('#link-four-wrapper').css(prop,"translateZ("+Math.round(2*height*1.1*Math.sin(toRadians(90-rotationAngle*3)))+"px) translateX("+Math.round(2*height*1.1*Math.cos(toRadians(90-rotationAngle*3)))+"px) rotateY("+rotationAngle*3+"deg) translateY(235px)");
 	
 	//resize somethings now that they're moved.
-	$('#link-four-wrapper').css("width","450px");
+	$('#link-four-wrapper').css("width","600px");
 	$('#link-four-wrapper').css("margin","auto");
 
 	//set click listeners for arrows
@@ -204,6 +204,7 @@ function performNavigation(pageName){
 	// } else {
 	// 	xAngle += -360;
 	// }
+	
 
 	//navToDegreesMap is an array that stores the correct rotation angle for each face of the cube
 	yAngle = -navToDegreesMap[pageName];

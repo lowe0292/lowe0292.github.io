@@ -76,8 +76,13 @@ div#blog-sample {
 	text-align: justify;
 } div#blog-sample #content-wrapper {
 	overflow: hidden;
-	padding: 0 40px 0 40px;
+	padding: 0 30px 0 30px;
 	clear: both;
+} div#blog-sample #content-wrapper p {
+	line-height: 30px;
+	padding: 0 30px;
+	float:left;
+	width: 50%;
 }
 
 #experiment {
@@ -102,7 +107,7 @@ div#blog-sample {
 	color: white;
 	letter-spacing: 1px;
 	line-height: 20px;
-	font-family: 'Nunito', sans-serif;
+	font-family: 'Droid Sans', sans-serif;
 
 	-webkit-transition: -webkit-transform 2s ease;
 	-moz-transition: -moz-transform 2s ease;
@@ -112,6 +117,7 @@ div#blog-sample {
 	bottom: 0;
 	right: 0;
 	text-decoration: none;
+	padding: 10px;
 } .face.three > a:hover {
 	text-decoration: underline;
 }
@@ -151,10 +157,10 @@ iframe {
 
 } iframe.media.three {
 	position: absolute;
-	top: 150px;
-	right: 20px;
 	border-radius: 3px;
 	border: 1px solid #ddd;
+	left: 145px;
+	top: 150px;
 	-webkit-transition: -webkit-transform 2s ease;
 	-moz-transition: -moz-transform 2s ease;
 }
@@ -257,12 +263,11 @@ nav a.selected {
 p {
 	float: left;
 } p.one {
-	text-align: left;
-	margin: 100px 0px 0px 20px;
-	width: 300px;
+	text-align: justify;
+	margin: 135px 0px 0px 90px;
+	width: 400px;
 	height: 364px;
 	line-height: 30px;
-
 } p.four {
 	margin: 100px auto;
 

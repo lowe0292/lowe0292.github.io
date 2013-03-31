@@ -15,9 +15,9 @@ if(strlen(strstr($agent,"Chrome")) > 0 ){
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href='http://fonts.googleapis.com/css?family=Wendy+One' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
 		<link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<meta name="description" content="Scott Lowe's personal website">
@@ -36,9 +36,9 @@ if(strlen(strstr($agent,"Chrome")) > 0 ){
 		</nav>
 		<div id="container">
 			<div id="content">
-				<div id="left-arrow" class="arrow">
+				<!-- <div id="left-arrow" class="arrow">
 					<
-				</div>
+				</div> -->
 				<div id="experiment">
 					<div id="cube">
 						<div class="face one">
@@ -73,7 +73,7 @@ if(strlen(strstr($agent,"Chrome")) > 0 ){
 						</div>
 						<div id="link-two-wrapper"><?php echo '<a class="link two" href="http://scottdlowe.tumblr.com">Read More on Tumblr</a>';  ?></div>
 						<h1 class="title two">thoughts</h1>
-						<div class="face three"><a href="http://www.theinformationparty.org">Click here to learn more about The Information Party.</a></div>
+						<div class="face three"><a href="http://www.theinformationparty.org">Click here to learn more about The Information Party &rarr;</a></div>
 						<h1 class="title three">creations</h1>
 						<iframe class="media three" width="640" height="480" src="http://www.youtube.com/embed/t1mQE_S7n1I" frameborder="0"></iframe>
 						<div class="face four"></div>
@@ -87,9 +87,9 @@ if(strlen(strstr($agent,"Chrome")) > 0 ){
 						</div>
 					</div>
 				</div>
-				<div id="right-arrow" class="arrow">
+				<!-- <div id="right-arrow" class="arrow">
 					>
-				</div>
+				</div> -->
 				<div class="clearfix">
 				</div>
 			</div>	
