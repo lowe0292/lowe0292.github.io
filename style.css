@@ -74,15 +74,12 @@ div#blog-sample {
 	text-indent:50px;
 	margin: 0px auto;
 	text-align: justify;
-} div#blog-sample #content-wrapper {
-	overflow: hidden;
-	padding: 0 30px 0 30px;
-	clear: both;
-} div#blog-sample #content-wrapper p {
+	padding: 0px 100px;
 	line-height: 30px;
-	padding: 0 30px;
-	float:left;
-	width: 50%;
+} div#blog-sample p > a {
+	color: white;
+} div#blog-sample p > a:hover {
+	color: #5112C5;
 }
 
 #experiment {
@@ -105,7 +102,6 @@ div#blog-sample {
 	background-color: rgba(0,0,0,.9);
 	overflow: none;
 	color: white;
-	letter-spacing: 1px;
 	line-height: 20px;
 	font-family: 'Droid Sans', sans-serif;
 
