@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link href='http://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>
+			if (!window.jQuery) {
+			    document.write('<script src="jquery-1.7.2.min.js"><\/script>');
+			}
+		</script>
+		<script src="jquery.fittext.js"></script>
 		<meta name="description" content="Scott Lowe's personal website">
 		<meta name="keywords" content="Scott Lowe ScottDLowe Smart Funny Cute Clever :)">
 		<meta name="author" content="Scott Lowe">
+		<title>Scott|D|Lowe</title>
 	</head>
 	<body>
 		<div id="eye-left"></div>
 		<div id="eye-right"></div>
-		<div id="mouth-bottom"></div>
+		<div id="mouth-bottom"><span id="output">hello, world. more text!</span></div>
 		<div id="mouth-left"></div>
 		<div id="mouth-right"></div>
 	</body>

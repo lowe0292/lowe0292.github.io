@@ -3,9 +3,11 @@ $(document).ready(function () {
     $(window).resize(function() {
         updateContainer();
     });
+    $('#mouth-bottom').fitText(.7); //keeps font the right size
 });
 
 function updateContainer() {
+
 	//get viewport height and width
 	var height = $(window).height();
 	var width = $(window).width();
@@ -65,4 +67,11 @@ function updateContainer() {
 	$middleMouth.offset({ top: topBottomMouth, left: leftBottomMouth});
 	$leftMouth.offset({ top: topLeftMouth, left: leftLeftMouth});
 	$rightMouth.offset({ top: topRightMouth, left: leftRightMouth});
+
+	var $output = $('#output');
+	$output.css('border-left-width', minDimension * 1 / 100 + "px");
+	$output.height(Math.ceil(minDimension * 2 / 16));
+	$output.width(Math.ceil(minDimension * 12 / 16));
+	// $('#output').css('bottom', minDimension / 200 + "px");
+	// $('#output').css('right', minDimension / 200 + "px");
 }

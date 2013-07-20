@@ -15,4 +15,37 @@ body {
 div {
 	position: absolute;
 	background: white;
+	font-family: 'Quicksand', sans-serif;
+	color: black;
+} div#mouth-bottom {
+	z-index: 100;
+	position: relative;
+} 
+
+span#output {
+	position: absolute;
+	bottom: 5px;
+	right: 5px;
+	padding: 0px;
+	margin: 0px;
+	border-left: solid rgba(0, 0, 0, 0) 1px;
+	animation: border-blink 1s infinite;
+	-webkit-animation: border-blink 1s infinite;
+	border-left: solid rgba(0, 0, 0, 0) 2px;
+	text-align: right;
+	white-space: nowrap ;
+}
+
+@keyframes border-blink {
+    0%   { border-left-color: rgba(0, 0, 0, 0); }
+    49%   { border-left-color: rgba(0, 0, 0, 0); }
+    50%  { border-left-color: rgba(0, 0, 0, 1); }
+    99%   { border-left-color: rgba(0, 0, 0, 1); }
+}
+
+@-webkit-keyframes border-blink {
+    0%   { border-left-color: rgba(0, 0, 0, 0); }
+    49%   { border-left-color: rgba(0, 0, 0, 0); }
+    50%  { border-left-color: rgba(0, 0, 0, 1); }
+    99%   { border-left-color: rgba(0, 0, 0, 1); }
 }
