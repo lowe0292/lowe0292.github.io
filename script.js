@@ -3,7 +3,9 @@ $(document).ready(function () {
     $(window).resize(function() {
         updateContainer();
     });
-    $('#mouth-bottom').fitText(.7); //keeps font the right size
+    //make output text responsive
+    $('#mouth-bottom').fitText(.7); 
+    print("Hello, World! Ready to build awesome stuff!?");
 });
 
 function updateContainer() {
@@ -69,9 +71,22 @@ function updateContainer() {
 	$rightMouth.offset({ top: topRightMouth, left: leftRightMouth});
 
 	var $output = $('#output');
-	$output.css('border-left-width', minDimension * 1 / 100 + "px");
-	$output.height(Math.ceil(minDimension * 2 / 16));
-	$output.width(Math.ceil(minDimension * 12 / 16));
-	// $('#output').css('bottom', minDimension / 200 + "px");
-	// $('#output').css('right', minDimension / 200 + "px");
+	$output.css('border-right-width', minDimension * 1 / 100 + "px");
+}
+
+function print(output) {
+	//first, clear the output span
+	$('#output').html("");
+	//iterate through the output
+	(function myLoop (i, speed) {  
+		speed = speed * (Math.random() * (1.1 - .9) + .9); //random percent change or %110 through 90%
+		setTimeout(function () {   
+		  type( output[output.length - (i)] );          //  your code here                
+		  if (--i) myLoop(i, speed);      //  decrement i and call myLoop again if i > 0
+		}, speed);
+	})(output.length, 100);  
+}
+
+function type(character){
+    $('#output').append(character);
 }
