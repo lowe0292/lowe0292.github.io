@@ -1,14 +1,51 @@
+var typing = false;
+
 $(document).ready(function () {
+	var pull 		= $('#pull');
+		menu 		= $('nav ul');
+		menuHeight	= menu.height();
+
+	$(pull).on('click', function(e) {
+		e.preventDefault();
+		pull.toggleClass("open");
+		menu.slideToggle();
+	});
+
     updateContainer();
     $(window).resize(function() {
         updateContainer();
     });
+    
     //make output text responsive
-    $('#mouth-bottom').fitText(.7); 
-    print("Hello, World! Ready to build awesome stuff!?");
+    $('#mouth-bottom').fitText(1.2); 
+
+    // print("Hello, World! Ready to build awesome stuff!?");
+    $('nav ul li a').click(function(){
+    	//clear timeouts
+    	var id = window.setTimeout(function() {}, 0);
+		while (id--) {
+		    window.clearTimeout(id); // will do nothing if no timeout with id is present
+		}
+
+    	//if menu is open, close it
+    	if(pull.hasClass("open")){
+    		pull.removeClass("open");
+    		menu.slideToggle();
+    	}
+    	if(!typing){
+    		think($(this).html().toLowerCase());
+    	}
+    });
+
+    print("hello!");
 });
 
 function updateContainer() {
+	//responsive menu icon 
+	var w = $(window).width();
+	if(w > 600 && menu.is(':hidden')) {
+		menu.removeAttr('style');
+	}
 
 	//get viewport height and width
 	var height = $(window).height();
@@ -71,22 +108,55 @@ function updateContainer() {
 	$rightMouth.offset({ top: topRightMouth, left: leftRightMouth});
 
 	var $output = $('#output');
-	$output.css('border-right-width', minDimension * 1 / 100 + "px");
+	$output.css('border-right-width', minDimension * 1 / 200 + "px");
+	// $output.width(Math.ceil(minDimension * 12 / 16));
 }
 
 function print(output) {
 	//first, clear the output span
-	$('#output').html("");
+	$('#output').html(">");
 	//iterate through the output
 	(function myLoop (i, speed) {  
 		speed = speed * (Math.random() * (1.1 - .9) + .9); //random percent change or %110 through 90%
 		setTimeout(function () {   
-		  type( output[output.length - (i)] );          //  your code here                
-		  if (--i) myLoop(i, speed);      //  decrement i and call myLoop again if i > 0
+		  	type( output[output.length - (i)] );          //  your code here                
+		  	if (--i){ 
+		  		myLoop(i, Math.max(Math.min(speed, 100), 50)); //put a boundary on slow typing speed 
+			} else {
+				$('#output').html(originalOutput + "<br/>&#8250;" + output);
+			}
 		}, speed);
-	})(output.length, 100);  
+	})(output.length, 50);
+
 }
 
 function type(character){
-    $('#output').append(character);
+    $('#output').html($('#output').html() + character);
+}
+
+function think(input){
+	switch(input)
+	{
+	case "about":
+		print("I'm Scott Lowe.");
+		setTimeout(function(){print("I like riding bikes");
+			setTimeout(function(){print("and playing guitar!");
+				setTimeout(function(){print("Generally Irrelevant,");
+					setTimeout(function(){print("Wrecklessly Idealistic,");
+						setTimeout(function(){print("Lover of life.");
+							setTimeout(function(){print("It's nice to meet you.");
+
+							}, 2000);
+						}, 2000);
+					}, 2000);
+				}, 2000);
+			}, 2000);
+		}, 2000);
+		break;
+	case "email":
+		print('me@scottdlowe.com');
+		break;	
+	default:
+		print("bye!");
+	}
 }
