@@ -146,12 +146,12 @@ function think(input){
 						setTimeout(function(){print("Lover of life.");
 							setTimeout(function(){print("It's nice to meet you.");
 
-							}, 2000);
-						}, 2000);
-					}, 2000);
-				}, 2000);
-			}, 2000);
-		}, 2000);
+							}, 3000);
+						}, 3000);
+					}, 3000);
+				}, 3000);
+			}, 3000);
+		}, 3000);
 		break;
 	case "email":
 		print('me@scottdlowe.com');
