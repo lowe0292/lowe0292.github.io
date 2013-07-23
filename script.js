@@ -121,12 +121,12 @@ function print(output) {
 		setTimeout(function () {   
 		  	type( output[output.length - (i)] );          //  your code here                
 		  	if (--i){ 
-		  		myLoop(i, Math.max(Math.min(speed, 100), 50)); //put a boundary on slow typing speed 
+		  		myLoop(i, Math.max(Math.min(speed, 150), 50)); //put a boundary on slow typing speed 
 			} else {
 				$('#output').html(originalOutput + "<br/>&#8250;" + output);
 			}
 		}, speed);
-	})(output.length, 50);
+	})(output.length, 75);
 
 }
 
