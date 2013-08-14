@@ -1,2 +1,4 @@
-lowe0292.github.io
-==================
+scottdlowe.com
+==============
+
+My personal website
