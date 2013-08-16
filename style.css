@@ -82,7 +82,7 @@ nav {
 nav ul {
 	padding: 0;
 	margin: 0 auto;
-	width: 600px;
+	width: 900px;
 	height: 40px;
 }
 nav li {
@@ -92,11 +92,12 @@ nav li {
 nav a {
 	color: #fff;
 	display: inline-block;
-	width: 100px;
+	width: 150px;
 	text-align: center;
 	text-decoration: none;
 	line-height: 40px;
 	text-shadow: 1px 1px 0px #283744;
+	font-size: 10pt;
 }
 nav li a {
 	border-right: 1px solid #576979;
@@ -115,7 +116,7 @@ nav a#pull {
 }
 
 /*Collapsed*/
-@media only screen and (max-width : 600px) {
+@media only screen and (max-width : 900px) {
 	nav { 
   		height: auto;
   	}
