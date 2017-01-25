@@ -37,7 +37,28 @@ $(document).ready(function () {
     	}
     });
 
-    print("hello!");
+    print("What do we want?");
+    setInterval(function () {
+      print("What do we want?");
+    }, 16000);
+    setTimeout(function () {
+      print("Evidence-based facts!");
+      setInterval(function () {
+        print("Evidence-based facts!");
+      }, 16000);
+    }, 4000);
+    setTimeout(function () {
+      print("When do we want it?");
+      setInterval(function () {
+        print("When do we want it?");
+      }, 16000);
+    }, 8000);
+    setTimeout(function () {
+      print("After peer review!");
+      setInterval(function () {
+        print("After peer review!");
+      }, 16000);
+    }, 12000);
 });
 
 function updateContainer() {
