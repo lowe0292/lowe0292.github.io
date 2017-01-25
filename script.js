@@ -144,7 +144,7 @@ function print(output) {
 		  	if (--i){ 
 		  		myLoop(i, Math.max(Math.min(speed, 150), 50)); //put a boundary on slow typing speed 
 			} else {
-				$('#output').html(originalOutput + "<br/>&#8250;" + output);
+				$('#output').html(">" + output);
 			}
 		}, speed);
 	})(output.length, 75);
