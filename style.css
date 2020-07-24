@@ -84,6 +84,8 @@ nav ul {
 	margin: 0 auto;
 	width: 900px;
 	height: 40px;
+	display: flex;
+	justify-content: center;
 }
 nav li {
 	display: inline;

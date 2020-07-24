@@ -37,26 +37,26 @@ $(document).ready(function () {
     }
   });
 
-  print("What do we want?");
+  print("If you want to find the");
   setInterval(function () {
-    print("What do we want?");
+    print("If you want to find the");
   }, 16000);
   setTimeout(function () {
-    print("Evidence-based facts!");
+    print("secrets of the Universe");
     setInterval(function () {
-      print("Evidence-based facts!");
+      print("secrets of the Universe");
     }, 16000);
   }, 4000);
   setTimeout(function () {
-    print("When do we want it?");
+    print("think in terms of energy");
     setInterval(function () {
-      print("When do we want it?");
+      print("think in terms of energy");
     }, 16000);
   }, 8000);
   setTimeout(function () {
-    print("After peer review!");
+    print("frequency & vibration");
     setInterval(function () {
-      print("After peer review!");
+      print("frequency & vibration");
     }, 16000);
   }, 12000);
 });
